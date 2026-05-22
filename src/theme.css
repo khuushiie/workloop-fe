@@ -1,0 +1,106 @@
+/* ============================================================
+   HRMS Global Theme - CSS Design Tokens
+   ============================================================
+   Single source of truth for all colors in the application.
+   Import this file BEFORE tailwind directives in index.css.
+   ============================================================ */
+
+:root {
+  /* ── Primary (Indigo) ── */
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-200: #C7D2FE;
+  --color-primary-300: #A5B4FC;
+  --color-primary-400: #818CF8;
+  --color-primary-500: #6366F1;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338CA;
+  --color-primary-800: #3730A3;
+  --color-primary-900: #312E81;
+  --color-primary-950: #1E1B4B;
+
+  /* ── Secondary (Violet) ── */
+  --color-secondary-50: #F5F3FF;
+  --color-secondary-100: #EDE9FE;
+  --color-secondary-200: #DDD6FE;
+  --color-secondary-300: #C4B5FD;
+  --color-secondary-400: #A78BFA;
+  --color-secondary-500: #8B5CF6;
+  --color-secondary-600: #7C3AED;
+  --color-secondary-700: #6D28D9;
+  --color-secondary-800: #5B21B6;
+  --color-secondary-900: #4C1D95;
+  --color-secondary-950: #2E1065;
+
+  /* ── Semantic ── */
+  --color-success: #10B981;
+  --color-success-light: #ECFDF5;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FFFBEB;
+  --color-error: #EF4444;
+  --color-error-light: #FEF2F2;
+  --color-info: #3B82F6;
+  --color-info-light: #EFF6FF;
+
+  /* ── Text ── */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #374151;
+  --color-text-tertiary: #6B7280;
+  --color-text-placeholder: #9CA3AF;
+  --color-text-disabled: #CBD5E1;
+  --color-text-inverse: #FFFFFF;
+
+  /* ── Backgrounds ── */
+  --color-bg-base: #FFFFFF;
+  --color-bg-layout: #F8FAFC;
+  --color-bg-muted: #F1F5F9;
+  --color-bg-subtle: #E2E8F0;
+  --color-bg-skeleton: #E5E7EB;
+  --color-bg-disabled: #F5F5F5;
+  --color-bg-hover: #FAFAFA;
+
+  /* ── Borders ── */
+  --color-border-primary: #E2E8F0;
+  --color-border-secondary: #F1F5F9;
+  --color-border-input: #D9D9D9;
+  --color-border-input-hover: #E8E8E8;
+  --color-border-focus: #4F46E5;
+
+  /* ── Chart Palette ── */
+  --color-chart-1: #4F46E5;
+  --color-chart-2: #22C55E;
+  --color-chart-3: #F97316;
+  --color-chart-4: #7C3AED;
+  --color-chart-5: #06B6D4;
+  --color-chart-6: #E11D48;
+  --color-chart-7: #F59E0B;
+  --color-chart-8: #14B8A6;
+  --color-chart-9: #6366F1;
+
+  /* ── Calendar Event Types ── */
+  --color-event-holiday: #FF4D4F;
+  --color-event-holiday-bg: #FFF2F0;
+  --color-event-leave: #FAAD14;
+  --color-event-leave-bg: #FFFBE6;
+  --color-event-meeting: #1890FF;
+  --color-event-meeting-bg: #F0F8FF;
+  --color-event-deadline: #F5222D;
+  --color-event-deadline-bg: #FFF1F0;
+  --color-event-birthday: #EB2F96;
+  --color-event-birthday-bg: #FFF0F6;
+  --color-event-anniversary: #722ED1;
+  --color-event-anniversary-bg: #F9F0FF;
+  --color-event-custom: #52C41A;
+  --color-event-custom-bg: #F6FFED;
+
+  /* ── Skeleton / Shimmer ── */
+  --color-skeleton-from: #ECECEC;
+  --color-skeleton-via: #F5F5F5;
+  --color-skeleton-to: #ECECEC;
+
+  /* ── Shadows (as CSS variables for reuse) ── */
+  --shadow-brand: 0 4px 20px -2px rgba(79, 70, 229, 0.1);
+  --shadow-brand-hover: 0 10px 25px -5px rgba(79, 70, 229, 0.15), 0 8px 10px -6px rgba(79, 70, 229, 0.1);
+  --shadow-brand-button: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+  --shadow-brand-glow: 0 0 20px rgba(79, 70, 229, 0.5);
+}

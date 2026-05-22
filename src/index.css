@@ -1,0 +1,381 @@
+@import url("./theme.css");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global margin reset for text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+blockquote,
+figure,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar styles */
+*, .scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-disabled) var(--color-bg-muted);
+}
+
+::-webkit-scrollbar, .scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--color-bg-muted);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-text-disabled);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-placeholder)
+}
+
+/* Scroll indicator gradient */
+.scroll-indicator {
+  position: relative;
+}
+
+.scroll-indicator::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.scroll-indicator.has-overflow::after {
+  opacity: 1;
+}
+
+/* Line clamp utilities for text truncation */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+#timesheet-date::-webkit-calendar-picker-indicator,
+.task-start-time::-webkit-calendar-picker-indicator,
+.task-start-time::-webkit-time-picker-indicator,
+.task-end-time::-webkit-calendar-picker-indicator,
+.task-end-time::-webkit-time-picker-indicator {
+  cursor: pointer;
+}
+
+.no-space {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+select .icon {
+  right: 20px;
+}
+
+/* Hide scrollbar for mobile devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar, .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Additional responsive utilities */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar, .scrollbar-thin::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+/* Ensure touch-friendly scrolling on mobile */
+@media (hover: none) and (pointer: coarse) {
+  *, .scrollbar-thin {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+
+  /* Improve touch targets */
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better text readability */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Enhanced card hover effects */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:text-slate-700 {
+  color: var(--color-text-primary);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Enhanced focus states for better accessibility */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Better text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Plus Jakarta Sans", "Inter", "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif;
+  background-color: var(--color-bg-layout);
+  color: var(--color-text-primary)
+}
+
+/* Corporate Trust utility classes */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
+  }
+
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-brand-hover {
+    box-shadow: var(--shadow-brand-hover);
+  }
+
+  .card-elevated {
+    background: var(--color-bg-base);
+    border: 1px solid var(--color-bg-subtle);
+    border-radius: 12px;
+    box-shadow: var(--shadow-brand);
+    transition: all 200ms ease-out;
+  }
+
+  .card-elevated:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand-hover);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Tooltips: native `title` attributes are used for simple hover hints.
+ * For rich or positioned tooltips, use Ant Design's <Tooltip> component
+ * which handles viewport-aware placement automatically.
+ *
+ * The previous CSS-only [title]::after approach was removed because:
+ * - It always rendered above the element, clipping at the viewport top
+ * - It forced position:relative on every [title] element, breaking layouts
+ * - It conflicted with Ant Design's tooltip system
+ */
+
+/* Better text truncation */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Better text wrapping for card titles */
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure text doesn't get cut off */
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Better flex behavior for card content */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* Ensure proper text display in cards */
+.card-content {
+  overflow: hidden;
+}
+
+.card-title {
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.card-value {
+  line-height: 1.1;
+  word-break: break-all;
+}
+
+/* Prevent text overflow in flex containers */
+.flex-container {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Better responsive text sizing */
+@media (max-width: 640px) {
+  .card-title {
+    font-size: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .card-value {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .card-title {
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  .card-value {
+    font-size: 1.875rem;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-title {
+    font-size: 0.875rem;
+    line-height: 1.2;
+  }
+
+  .card-value {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+}
+
+
+
+
+
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.2s linear infinite;
+}
+
+/* Force AntD Carousel arrows to be black */
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  opacity: 1 !important;
+  font-size: 24px !important;
+}
+
+
+
+.slick-prev,
+.slick-next {
+  z-index: 5 !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Move arrows outside left/right */
+.custom-prev {
+  position: absolute !important;
+  left: -40px !important;
+  /* push outside */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-next {
+  position: absolute !important;
+  right: -40px !important;
+  /* push outside */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+.ant-picker-input input::placeholder {
+  color: #6B7280 !important;
+}
